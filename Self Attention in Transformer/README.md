@@ -223,7 +223,50 @@ array([[ 0.68537216,        -inf,        -inf,        -inf],
        [ 0.78209275, -0.99700418,  1.88206279,  0.79213542]])
 ```
 
+#### Softmax
+
 
 ```math
 \text{softmax} = \frac{e^{x_i}}{\sum_j e^{x}_j} $
 ```
+
+
+Softmax: It takes a list of numbers (scores) and converts them into a list of probabilities that add up to 1. This helps the model decide how important each word is relative to others.
+
+
+Purpose: This conversion to probabilities allows the model to focus on more relevant words while processing each word in the sentence, enabling better understanding and context-aware representations.
+
+```Python
+def softmax(x):
+  return (np.exp(x).T / np.sum(np.exp(x), axis=-1)).T
+```
+
+```Python
+attention = softmax(scaled + mask)
+attention
+```
+###### Output
+```Python
+array([[1.        , 0.        , 0.        , 0.        ],
+       [0.51359112, 0.48640888, 0.        , 0.        ],
+       [0.53753304, 0.27144826, 0.1910187 , 0.        ],
+       [0.19293995, 0.03256643, 0.57960627, 0.19488734]])
+```
+
+```Python
+new_v = np.matmul(attention, v)
+new_v
+```
+
+###### Output
+```Python
+array([[-0.00368231,  1.43739233, -0.59614565, -1.23171219,  1.12030717,
+        -0.98620738, -0.15461465, -1.03106383],
+       [ 0.41440401, -0.13671232,  0.02128364, -0.60532081,  0.49977893,
+        -1.1936286 , -0.27463831, -1.10169151],
+       [ 0.32673907,  0.72121642, -0.00947672, -0.59897862,  0.90155754,
+        -0.88535361, -0.21384855, -0.7053796 ],
+       [ 0.18700384,  1.67754576,  0.33105314, -0.41795742,  1.4258469 ,
+        -0.18788199, -0.10285145,  0.54683565]])
+```
+
