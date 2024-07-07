@@ -230,5 +230,5 @@ array([[ 0.68537216,        -inf,        -inf,        -inf],
 ```
 
 ```math
-\text{softmax} = \frac{e^{x_i}}{\sum_j e^{x_j}} $
+\text{softmax} = \frac{e^{x_i}}{\sum_j e^{x}_j} $
 ```
