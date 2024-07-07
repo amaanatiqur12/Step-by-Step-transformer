@@ -85,3 +85,23 @@ V
   -0.11405725  0.88026286]
  [-0.68069105  0.68385101  0.17994557 -1.68013201  0.91543969 -0.19108312
    0.03160471  1.40527326]]
+
+
+```Python
+np.matmul(q, k.T)
+```
+The operation np.matmul(q, k.T) performs matrix multiplication between the query matrix q and the transpose of the key matrix k.T .
+Explanation of np.matmul(q, k.T)
+Given:
+q is a matrix of shape(L,dk)
+k is a matrix of shape(L,dk)
+k.T is the transpose of k, which will have shape(dk,L)
+
+
+The result of np.matmul(q,k.T) will be a matrix of shape (L,L).
+Each element in this resulting matrix represents the dot product between a query vector from k.
+
+>array([[ 1.9385252 ,  5.43647918, -0.38370563,  1.24225801],
+       [ 1.35187753,  1.19807371, -1.70999851, -0.38129862],
+       [ 1.06382646, -0.86860778, -1.86251774, -0.68520405],
+       [ 2.21209236, -2.81995366,  5.32327746,  2.24049732]])
