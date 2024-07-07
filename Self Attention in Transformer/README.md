@@ -166,6 +166,8 @@ Simple Example:
 
 Imagine you're trying to predict the next word in a sentence. When predicting the third word, you should only consider the first and second words, not the fourth or fifth ones. Masking helps enforce this rule by "hiding" the future words from the model.
 
+###### Input
+
 ```Python
 mask = np.tril(np.ones( (L, L) ))
 mask
@@ -178,6 +180,8 @@ array([[1., 0., 0., 0.],
        [1., 1., 1., 0.],
        [1., 1., 1., 1.]])
 ```
+
+###### Input
 
 ```python
 mask[mask == 0] = -np.infty
@@ -197,6 +201,8 @@ array([[  0., -inf, -inf, -inf],
 
 </code>
 </pre>
+
+###### Input
 
 ```Python
 scaled + mask
