@@ -110,7 +110,9 @@ Each element in this resulting matrix represents the dot product between a query
 
 ```math
 \text{self attention} = \text{softmax}\left(\frac{QK^T}{\sqrt{d_k}} + M\right)
-\newline
+
+```
+```math
 \newline
 \text{new } V = \text{self attention} \cdot V
 ```
