@@ -1,17 +1,17 @@
 # Self Attention
 
-##### Summary
-Initialization: Generate query, key, and value matrices.
+#### Summary
+Initialization : Generate query, key, and value matrices.
 
-Matrix Multiplication: Calculate Q. K^T
+Matrix Multiplication : Calculate Q. K^T
 
-Scaling: Divide by sqrt Dk
+Scaling Divide by sqrt Dk
 
-Masking: Apply a mask to prevent attending to future tokens.
+Masking : Apply a mask to prevent attending to future tokens.
 
-Softmax: Apply softmax to get attention weights.
+Softmax : Apply softmax to get attention weights.
 
-Weighted Sum: Compute the final values by multiplying attention weights with the value matrix.
+Weighted Sum : Compute the final values by multiplying attention weights with the value matrix.
 
 
 
