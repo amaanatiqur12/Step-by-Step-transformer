@@ -181,11 +181,14 @@ mask[mask == 0] = -np.infty
 mask[mask == 1] = 0
 mask
 ```
-
->array([[  0., -inf, -inf, -inf],
+<pre>
+<code>
+array([[  0., -inf, -inf, -inf],
        [  0.,   0., -inf, -inf],
        [  0.,   0.,   0., -inf],
        [  0.,   0.,   0.,   0.]])
+</code>
+</pre>
 
 ```Python
 scaled + mask
