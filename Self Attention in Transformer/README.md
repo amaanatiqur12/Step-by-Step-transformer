@@ -270,4 +270,22 @@ array([[-0.00368231,  1.43739233, -0.59614565, -1.23171219,  1.12030717,
         -0.18788199, -0.10285145,  0.54683565]])
 ```
 
-**
+***
+
+```Python
+def softmax(x):
+  return (np.exp(x).T / np.sum(np.exp(x), axis=-1)).T
+
+def scaled_dot_product_attention(q, k, v, mask=None):
+  d_k = q.shape[-1]
+  scaled = np.matmul(q, k.T) / math.sqrt(d_k)
+  if mask is not None:
+    scaled = scaled + mask
+  attention = softmax(scaled)
+  out = np.matmul(attention, v)
+  return out, attention
+```
+
+```Python
+values, attention = scaled_dot_product_attention(q, k, v, mask=mask)
+```
