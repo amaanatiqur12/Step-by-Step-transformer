@@ -272,6 +272,8 @@ array([[-0.00368231,  1.43739233, -0.59614565, -1.23171219,  1.12030717,
 
 ***
 
+#### In one function
+
 ```Python
 def softmax(x):
   return (np.exp(x).T / np.sum(np.exp(x), axis=-1)).T
