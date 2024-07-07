@@ -5,7 +5,7 @@ Initialization : Generate query, key, and value matrices.
 
 Matrix Multiplication : Calculate Q. K^T
 
-Scaling Divide by sqrt Dk
+Scaling : Divide by sqrt Dk
 
 Masking : Apply a mask to prevent attending to future tokens.
 
