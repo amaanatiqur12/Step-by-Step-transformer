@@ -147,3 +147,53 @@ q.var(), k.var(), scaled.var()
 
 With scaling by sqrt(dk), the variance of the scaled dot product (scaled_dot_product.var())
 is reduced significantly, making it more comparable to the variances of the queries and keys.
+
+```Python
+scaled
+```
+
+>array([[ 0.68537216,  1.92208565, -0.13566043,  0.43920453],
+       [ 0.47796088,  0.42358302, -0.60457577, -0.13480942],
+       [ 0.37611945, -0.30709922, -0.65849946, -0.24225621],
+       [ 0.78209275, -0.99700418,  1.88206279,  0.79213542]])
+
+
+#### Masking
+
+Masking is a technique used in machine learning, specifically in models like Transformers, to control which elements in a sequence can "see" or "attend to" each other. It ensures that certain positions in the sequence are ignored during computations, which is essential for tasks where the order of information matters.
+
+Simple Example:
+
+Imagine you're trying to predict the next word in a sentence. When predicting the third word, you should only consider the first and second words, not the fourth or fifth ones. Masking helps enforce this rule by "hiding" the future words from the model.
+
+```Python
+mask = np.tril(np.ones( (L, L) ))
+mask
+```
+
+>array([[1., 0., 0., 0.],
+       [1., 1., 0., 0.],
+       [1., 1., 1., 0.],
+       [1., 1., 1., 1.]])
+
+```python
+mask[mask == 0] = -np.infty
+mask[mask == 1] = 0
+mask
+```
+
+>array([[  0., -inf, -inf, -inf],
+       [  0.,   0., -inf, -inf],
+       [  0.,   0.,   0., -inf],
+       [  0.,   0.,   0.,   0.]])
+
+```Python
+scaled + mask
+```
+
+>array([[ 0.68537216,        -inf,        -inf,        -inf],
+       [ 0.47796088,  0.42358302,        -inf,        -inf],
+       [ 0.37611945, -0.30709922, -0.65849946,        -inf],
+       [ 0.78209275, -0.99700418,  1.88206279,  0.79213542]])
+
+
