@@ -223,11 +223,6 @@ array([[ 0.68537216,        -inf,        -inf,        -inf],
        [ 0.78209275, -0.99700418,  1.88206279,  0.79213542]])
 ```
 
-```math
-\text{self attention} = \text{softmax}\left(\frac{QK^T}{\sqrt{d_k}} + M\right)
-\newline
-\text{new } V = \text{self attention} \cdot V
-```
 
 ```math
 \text{softmax} = \frac{e^{x_i}}{\sum_j e^{x}_j} $
