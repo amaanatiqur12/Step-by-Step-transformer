@@ -108,7 +108,11 @@ Each element in this resulting matrix represents the dot product between a query
        [ 1.06382646, -0.86860778, -1.86251774, -0.68520405],
        [ 2.21209236, -2.81995366,  5.32327746,  2.24049732]])
 
-\\text{self attention} = softmax\\bigg(\\frac{Q.K^T}{\\sqrt{d_k}}+M\\bigg)\n
+```math
+\text{self attention} = \text{softmax}\left(\frac{QK^T}{\sqrt{d_k}} + M\right)
+\newline
+\text{new } V = \text{self attention} \cdot V
+```
 #### Why we need sqrt(d_k) in denominator
 
 
