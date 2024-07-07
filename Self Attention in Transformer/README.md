@@ -170,33 +170,43 @@ Imagine you're trying to predict the next word in a sentence. When predicting th
 mask = np.tril(np.ones( (L, L) ))
 mask
 ```
+###### Output
 
->array([[1., 0., 0., 0.],
+```Python
+array([[1., 0., 0., 0.],
        [1., 1., 0., 0.],
        [1., 1., 1., 0.],
        [1., 1., 1., 1.]])
+```
 
 ```python
 mask[mask == 0] = -np.infty
 mask[mask == 1] = 0
 mask
 ```
+
+###### Output
+
 <pre>
 <code>
+   
 array([[  0., -inf, -inf, -inf],
        [  0.,   0., -inf, -inf],
        [  0.,   0.,   0., -inf],
        [  0.,   0.,   0.,   0.]])
+
 </code>
 </pre>
 
 ```Python
 scaled + mask
 ```
+###### Output
 
->array([[ 0.68537216,        -inf,        -inf,        -inf],
+```Python
+array([[ 0.68537216,        -inf,        -inf,        -inf],
        [ 0.47796088,  0.42358302,        -inf,        -inf],
        [ 0.37611945, -0.30709922, -0.65849946,        -inf],
        [ 0.78209275, -0.99700418,  1.88206279,  0.79213542]])
-
+```
 
