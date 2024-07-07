@@ -87,6 +87,8 @@ V
    0.03160471  1.40527326]]
 
 
+##### performs matrix multiplication between the query matrix q and the transpose of the key matrix k.T.
+
 ```Python
 np.matmul(q, k.T)
 ```
@@ -105,3 +107,43 @@ Each element in this resulting matrix represents the dot product between a query
        [ 1.35187753,  1.19807371, -1.70999851, -0.38129862],
        [ 1.06382646, -0.86860778, -1.86251774, -0.68520405],
        [ 2.21209236, -2.81995366,  5.32327746,  2.24049732]])
+
+
+#### Why we need sqrt(d_k) in denominator
+
+
+When computing the attention scores using the dot product of queries (Q) and keys (K), the resulting values can be quite large, especially for large values of dk​
+(the dimensionality of the keys and queries). This can lead to very large values in the exponent of the softmax function, causing the softmax to saturate and produce very small gradients, which makes training difficult.
+
+To counteract this, the dot products are scaled by ​sqrt(dk)
+This scaling helps to keep the variance of the dot product approximately constant, preventing the softmax function from saturating and making the model easier to train.
+
+```Python
+q_var = q.var()
+k_var = k.var()
+dot_product = np.matmul(q, k.T)
+dot_product_var = dot_product.var()
+
+(q_var, k_var, dot_product_var)
+```
+
+###### Ouptut
+
+>(0.8672192297664698, 0.9229851723027697, 5.1446872979260165)
+
+
+#### Variance with Scaling
+
+Now, let's scale the dot product by sqrt(dk):
+
+```Python
+scaled = np.matmul(q, k.T) / math.sqrt(d_k)
+q.var(), k.var(), scaled.var()
+```
+
+###### Output
+
+>(0.8672192297664698, 0.9229851723027697, 0.643085912240752)
+
+With scaling by sqrt(dk), the variance of the scaled dot product (scaled_dot_product.var())
+is reduced significantly, making it more comparable to the variances of the queries and keys.
