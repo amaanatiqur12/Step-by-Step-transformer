@@ -228,3 +228,6 @@ array([[ 0.68537216,        -inf,        -inf,        -inf],
 \newline
 \text{new } V = \text{self attention} \cdot V
 ```
+
+
+$ \text{softmax} = \frac{e^{x_i}}{\sum_j e^{x_j}} $.
