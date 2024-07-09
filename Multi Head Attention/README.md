@@ -27,5 +27,5 @@ Output:
 torch.Size([1, 4, 512])
 ```
 
-
+Generates a random tensor x with the specified shape [1, 4, 512]. This tensor represents a single sequence of 4 tokens, where each token is a 512-dimensional vector filled with random values. In simple words, it creates a random dataset for one sequence of data.
 
