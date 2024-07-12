@@ -58,5 +58,7 @@ torch.Size([1, 4, 1536])
 
 
 1: Represents the batch size. In this case, there is 1 batch.
+
 4: Represents the sequence length or the number of tokens in each sequence. Here, there are 4 tokens.
+
 1536: Represents the total dimensionality of the concatenated Q, K, and V vectors for each token in the sequence. In your setup, each token is represented by a vector of size 1536
