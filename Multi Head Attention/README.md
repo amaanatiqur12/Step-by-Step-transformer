@@ -112,8 +112,25 @@ The code qkv.permute(0, 2, 1, 3) rearranges the dimensions of the tensor to [bat
 ```Python
 torch.Size([1, 4, 8, 192])
 ```
-     
 
+```Python
+q, k, v = qkv.chunk(3, dim=-1)
+q.shape, k.shape, v.shape
+```
+          
+The chunk function splits the tensor into equal-sized chunks along the specified dimension.
 
+In this case:
 
+qkv.chunk(3, dim=-1) splits qkv into 3 chunks along the last dimension (dim=-1).
+Each chunk will have the shape:
+
+[batch_size, num_heads, sequence_length, head_dim]
+So, for our example, each of q, k, and v will have the shape [1, 8, 4, 64].
+
+```Python
+(torch.Size([1, 8, 4, 64]),
+ torch.Size([1, 8, 4, 64]),
+ torch.Size([1, 8, 4, 64]))
+```
 
