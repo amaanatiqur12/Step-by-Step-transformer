@@ -62,3 +62,42 @@ torch.Size([1, 4, 1536])
 4: Represents the sequence length or the number of tokens in each sequence. Here, there are 4 tokens.
 
 1536: Represents the total dimensionality of the concatenated Q, K, and V vectors for each token in the sequence. In your setup, each token is represented by a vector of size 1536
+
+
+
+
+```Python
+num_heads = 8
+head_dim = d_model // num_heads
+qkv = qkv.reshape(batch_size, sequence_length, num_heads, 3 * head_dim)
+qkv.shape
+```
+num_heads: This parameter specifies the number of attention heads in the multi-head attention mechanism. Instead of computing a single attention function, the multi-head attention mechanism splits the input into multiple parts (or heads) and computes attention separately for each part. This allows the model to focus on different parts of the input sequence simultaneously, capturing various relationships and patterns.
+
+head_dim: The dimension of each attention head. It is calculated as
+head_dim = 512 // 8 = 64
+
+qkv = qkv.reshape(batch_size, sequence_length, num_heads, 3 * head_dim)
+
+This reshapes the qkv tensor to [1, 4, 8, 192], where:
+
+batch_size remains 1.
+sequence_length remains 4.
+num_heads is 8.
+3 * head_dim is 192 (since 3 * 64 = 192).
+
+Final Reshaped Tensor
+The tensor qkv now has the shape [1, 4, 8, 192]. This means that for each token in the sequence (4 tokens), there are 8 separate attention heads, and each head has a concatenated Q, K, and V vector of size 192 (which is 3 * 64).
+
+Purpose of the Reshaping
+Splitting the Attention Heads: The reshaping operation prepares the qkv tensor to be split into individual attention heads. Each head will independently compute attention scores, allowing the model to capture different types of relationships within the input sequence.
+
+Facilitating Parallel Computation: By organizing the tensor in this manner, the model can efficiently compute the attention scores in parallel for each head, leveraging the power of parallel processing in modern hardware (like GPUs).
+
+
+###### Output
+
+```Python
+torch.Size([1, 4, 8, 192])
+```
+     
