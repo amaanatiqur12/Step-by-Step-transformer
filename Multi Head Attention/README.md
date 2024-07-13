@@ -100,4 +100,20 @@ Facilitating Parallel Computation: By organizing the tensor in this manner, the 
 ```Python
 torch.Size([1, 4, 8, 192])
 ```
+
+```Python
+qkv = qkv.permute(0, 2, 1, 3)
+qkv.shape
+```
+The code qkv.permute(0, 2, 1, 3) rearranges the dimensions of the tensor to [batch_size, num_heads, sequence_length, 3 * head_dim]
+
+###### Output
+
+```Python
+torch.Size([1, 4, 8, 192])
+```
      
+
+
+
+
