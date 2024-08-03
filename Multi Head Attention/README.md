@@ -31,6 +31,23 @@ Generates a random tensor x with the specified shape [1, 4, 512]. This tensor re
 
 #### Linear Transformation for Query, Key, and Value Vectors
 
+
+
+Linear Layer Definition:
+
+A linear layer is defined as nn.Linear(input_dim, output_dim) in PyTorch.
+It applies a linear transformation to the input data, which is mathematically represented as 
+
+𝑌 = 𝑋𝑊𝑇 + 𝑏 , where:
+
+*X is the input tensor.
+
+*W is the weight matrix.
+
+*b is the bias vector.
+
+
+
 ```python
 qkv_layer = nn.Linear(input_dim , 3 * d_model)
 ```
@@ -53,6 +70,9 @@ qkv.shape
 --- To remove
 This transformation generates a single tensor qkv that combines the queries (Q), keys (K), and values (V) for the multi-head attention mechanism. The output tensor qkv has three times the dimension of the model because it concatenates the Q, K, and V vectors for each token in the sequence.
 ---
+
+
+
 
 ```Python
 torch.Size([1, 4, 1536])
