@@ -38,7 +38,7 @@ Linear Layer Definition:
 A linear layer is defined as nn.Linear(input_dim, output_dim) in PyTorch.
 It applies a linear transformation to the input data, which is mathematically represented as 
 
-𝑌 = 𝑋𝑊𝑇 + 𝑏 , where:
+𝑌 = 𝑋𝑊^𝑇 + 𝑏 , where:
 
 => X is the input tensor.
 
