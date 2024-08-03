@@ -50,7 +50,9 @@ qkv.shape
 
 ```
 
+--- To remove
 This transformation generates a single tensor qkv that combines the queries (Q), keys (K), and values (V) for the multi-head attention mechanism. The output tensor qkv has three times the dimension of the model because it concatenates the Q, K, and V vectors for each token in the sequence.
+---
 
 ```Python
 torch.Size([1, 4, 1536])
