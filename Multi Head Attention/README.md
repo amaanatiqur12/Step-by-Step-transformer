@@ -40,11 +40,11 @@ It applies a linear transformation to the input data, which is mathematically re
 
 𝑌 = 𝑋𝑊𝑇 + 𝑏 , where:
 
-*X is the input tensor.
+=> X is the input tensor.
 
-*W is the weight matrix.
+=> W is the weight matrix.
 
-*b is the bias vector.
+=> b is the bias vector.
 
 
 
