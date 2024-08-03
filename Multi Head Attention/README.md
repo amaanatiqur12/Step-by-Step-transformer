@@ -51,9 +51,9 @@ It applies a linear transformation to the input data, which is mathematically re
 ```python
 qkv_layer = nn.Linear(input_dim , 3 * d_model)
 ```
-
+----- remove
 It creates a layer that will convert each token in the input sequence into three different types of vectors, which are necessary for the multi-head attention mechanism to work. The output dimension is three times the model dimension because it concatenates the Q, K, and V vectors. The input vector is transformed into three separate vectors (queries, keys, and values) using a linear transformation. This involves matrix multiplication with learned weights and the addition of biases, resulting in distinct query, key, and value vectors that capture different aspects of the input data.
-
+---
 Input Vector (512 dimensions) → Linear Layer → Output Vector (1536 dimensions)
 
 The Output Vector (1536 dimensions) is split into three parts:
