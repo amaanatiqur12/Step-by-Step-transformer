@@ -51,9 +51,12 @@ It applies a linear transformation to the input data, which is mathematically re
 ```python
 qkv_layer = nn.Linear(input_dim , 3 * d_model)
 ```
------ remove
-It creates a layer that will convert each token in the input sequence into three different types of vectors, which are necessary for the multi-head attention mechanism to work. The output dimension is three times the model dimension because it concatenates the Q, K, and V vectors. The input vector is transformed into three separate vectors (queries, keys, and values) using a linear transformation. This involves matrix multiplication with learned weights and the addition of biases, resulting in distinct query, key, and value vectors that capture different aspects of the input data.
----
+
+input_dim: This specifies the number of input features (or dimensions) for each data point. It’s the size of the input vector that will be fed into the layer.
+
+3 * d_model: This specifies the number of output features (or dimensions) for each data point. It’s the size of the output vector produced by the layer. Here, 3 * d_model means the layer will produce an output vector of 3 * d_model dimensions for each input vector.
+
+
 Input Vector (512 dimensions) → Linear Layer → Output Vector (1536 dimensions)
 
 The Output Vector (1536 dimensions) is split into three parts:
@@ -66,13 +69,6 @@ qkv = qkv_layer(x)
 qkv.shape
 
 ```
-
---- To remove
-This transformation generates a single tensor qkv that combines the queries (Q), keys (K), and values (V) for the multi-head attention mechanism. The output tensor qkv has three times the dimension of the model because it concatenates the Q, K, and V vectors for each token in the sequence.
----
-
-
-
 
 ```Python
 torch.Size([1, 4, 1536])
