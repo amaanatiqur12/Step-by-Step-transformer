@@ -59,10 +59,6 @@ input_dim: This specifies the number of input features (or dimensions) for each 
 
 Input Vector (512 dimensions) → Linear Layer → Output Vector (1536 dimensions)
 
-The Output Vector (1536 dimensions) is split into three parts:
-Query Vector (512 dimensions)
-Key Vector (512 dimensions)
-Value Vector (512 dimensions)
 
 ```python
 qkv = qkv_layer(x)
