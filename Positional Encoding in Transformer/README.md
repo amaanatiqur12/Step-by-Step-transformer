@@ -33,26 +33,35 @@ Different Frequencies : The formula for positional encoding uses different frequ
 ---
 
 1. Capturing Relative Positions
+
 What It Means:
 
 Relative Positioning refers to understanding how close or far apart two elements (tokens) are in a sequence. In Transformers, capturing relative position helps the model understand relationships between tokens based on their positions in the sequence, not just their absolute positions.
+
 Why It’s Useful:
 
-Understanding Context: For tasks like translation or text generation, knowing how one token relates to another (e.g., “is” comes before “a”) is crucial for generating coherent and contextually appropriate responses.
-Learning Patterns: By capturing relative distances, the model can learn patterns and dependencies between tokens that are close or far apart. For example, in the sentence "The cat sat on the mat," the relationship between "cat" and "mat" is significant and understanding this relationship improves the model's performance on tasks like summarization or question answering.
+Understanding Context : For tasks like translation or text generation, knowing how one token relates to another (e.g., “is” comes before “a”) is crucial for generating coherent and contextually appropriate responses.
+
+Learning Patterns : By capturing relative distances, the model can learn patterns and dependencies between tokens that are close or far apart. For example, in the sentence "The cat sat on the mat," the relationship between "cat" and "mat" is significant and understanding this relationship improves the model's performance on tasks like summarization or question answering.
+
 How Positional Encoding Helps:
 
 The sine and cosine functions encode positions in such a way that the differences between the encodings for two positions reflect their relative distance. For instance, if two tokens are close to each other, their positional encodings will be more similar than those of tokens that are farther apart. This relative positioning information helps the model to discern relationships between tokens effectively.
 
 2. Avoiding Arbitrary Collisions
+
 What It Means:
 
 Arbitrary Collisions refer to different positions being mapped to the same or very similar positional encoding vectors. This is problematic because it would make it hard for the model to distinguish between those positions.
+
 Why Avoiding Collisions is Important:
 
 Discrimination: Each position in the sequence needs a distinct representation to allow the model to differentiate between them. If two different positions had the same encoding, the model would not be able to tell them apart, leading to loss of positional information.
+
 Effective Learning: Unique positional encodings help the model to learn and leverage positional relationships effectively. If collisions occurred frequently, it would hinder the model's ability to learn meaningful patterns from the position information.
+
 How Positional Encoding Avoids Collisions:
 
 Diverse Frequencies: The use of different frequencies in sine and cosine functions spreads out the encodings so that each position is uniquely represented. The periodic nature of these functions is controlled through frequency scaling to ensure that different positions do not end up with similar encodings.
+
 High Dimensionality: By using a high-dimensional encoding vector, the likelihood of collisions is reduced. Even if individual dimensions are periodic, the combined encoding across multiple dimensions provides a unique representation for each position.
