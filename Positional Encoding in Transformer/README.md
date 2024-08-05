@@ -26,7 +26,7 @@ Sine and cosine functions are periodic, meaning they repeat after a certain inte
 1) Managing Periodicity
 Different Frequencies : The formula for positional encoding uses different frequencies for sine and cosine functions. By using a range of frequencies, it ensures that the positional encodings cover a broad range of positions before repeating. This diversity in frequencies helps to distinguish between positions more effectively and reduces the likelihood of collisions or ambiguities.
 
-2) Long Sequences: For practical sequences, the range of frequencies is chosen to be sufficiently broad so that even for very long sequences, the encodings remain unique and informative. The range of frequencies is designed to ensure that positions in practical sequences don’t fall into the periodic overlap zone where encodings might become indistinguishable.
+2) Long Sequences : For practical sequences, the range of frequencies is chosen to be sufficiently broad so that even for very long sequences, the encodings remain unique and informative. The range of frequencies is designed to ensure that positions in practical sequences don’t fall into the periodic overlap zone where encodings might become indistinguishable.
 
 3) Dimensionality : The dimensionality of the positional encoding vector plays a role in managing periodicity. Higher-dimensional encodings help in maintaining uniqueness by spreading positional information across multiple dimensions. This way, even if individual sine and cosine functions are periodic, the combined encoding vector in a high-dimensional space reduces the likelihood of repeating patterns.
 
