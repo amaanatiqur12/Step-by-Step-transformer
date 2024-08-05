@@ -21,7 +21,7 @@ These functions provide smooth gradients, which are useful for the model during 
 The formula for positional encoding uses different frequencies of sine and cosine functions, which allows it to scale to longer sequences. By using a range of frequencies, the encoding can handle varying sequence lengths effectively.
 
 ---
-###### Sine and cosine functions are periodic, meaning they repeat after a certain interval. However, in the context of positional encoding for Transformers, this periodicity is managed carefully to avoid issues.
+##### Sine and cosine functions are periodic, meaning they repeat after a certain interval. However, in the context of positional encoding for Transformers, this periodicity is managed carefully to avoid issues.
 
 1) Managing Periodicity
 Different Frequencies: The formula for positional encoding uses different frequencies for sine and cosine functions. By using a range of frequencies, it ensures that the positional encodings cover a broad range of positions before repeating. This diversity in frequencies helps to distinguish between positions more effectively and reduces the likelihood of collisions or ambiguities.
