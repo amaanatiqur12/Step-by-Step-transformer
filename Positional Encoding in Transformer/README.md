@@ -1,7 +1,7 @@
 # Theory of Positional Encoding of Transformer
 
 
-###### In the context of Transformers, positional encoding is used to provide information about the position of tokens in a sequence since the model itself does not inherently understand the order of the tokens.
+##### In the context of Transformers, positional encoding is used to provide information about the position of tokens in a sequence since the model itself does not inherently understand the order of the tokens.
 
 The sine and cosine functions are used for positional encoding because they provide a way to encode positions with a unique and smooth representation. Here’s why they are particularly useful:
 
