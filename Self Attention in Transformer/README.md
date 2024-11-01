@@ -1,3 +1,7 @@
+
+
+![image](https://github.com/user-attachments/assets/c5a3f99e-8c78-440b-9ca1-96e49abb6b32)
+
 # Self Attention
 
 #### Summary
