@@ -2,6 +2,7 @@
 
 ![image](https://github.com/user-attachments/assets/80e358da-3c78-47f2-8245-623662a26436)
 
+- In Transformers, the entire operation of computing attention scores, scaling, applying masking, and then passing the scores through softmax is referred to as "scaled dot-product attention
 
 # Self Attention
 
