@@ -56,6 +56,9 @@ input_dim: This specifies the number of input features (or dimensions) for each 
 
 3 * d_model: This specifies the number of output features (or dimensions) for each data point. It’s the size of the output vector produced by the layer. Here, 3 * d_model means the layer will produce an output vector of 3 * d_model dimensions for each input vector.
 
+![image](https://github.com/user-attachments/assets/68550e83-8edf-462c-8b61-83ef0e4c9ed1)
+![image](https://github.com/user-attachments/assets/258f92f5-9faa-4e2e-9b7c-50d8b3151156)
+
 
 Input Vector (512 dimensions) → Linear Layer → Output Vector (1536 dimensions)
 
